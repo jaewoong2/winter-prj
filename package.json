@@ -12,6 +12,7 @@
     "@typescript-eslint/parser": "^4.6.1"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.3.0",
     "@emotion/core": "^10.0.35",
     "@emotion/css": "^11.0.0",
     "@emotion/react": "^11.0.0",
@@ -25,10 +26,11 @@
     "@types/react": "^16.9.53",
     "@types/react-dom": "^16.9.8",
     "@types/react-redux": "^7.1.11",
-    "@types/redux-saga": "^0.10.5",
     "@types/react-router-dom": "^5.1.6",
+    "@types/redux-saga": "^0.10.5",
     "@typescript-eslint/eslint-plugin": "^4.6.1",
     "@typescript-eslint/parser": "^4.6.1",
+    "axios": "^0.21.0",
     "connected-react-router": "^6.8.0",
     "core-js": "^3.7.0",
     "emotion-theming": "^10.0.27",
