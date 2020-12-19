@@ -24,7 +24,7 @@ interface themeProvidersProps {
 }
 
 const black = "rgba(20, 20, 20, 0.6)";
-const white = "rgba(244, 244, 244, 0.9)";
+const white = "rgba(230, 230, 230, 0.7)";
 // const purple = "rgba(119, 17, 167, 0.9)";
 
 const ThemeProviders: React.FC<{ children?: themeProvidersProps }> = ({
@@ -37,7 +37,7 @@ const ThemeProviders: React.FC<{ children?: themeProvidersProps }> = ({
   const theme: ThemeType = useMemo(
     () => ({
       color: isDarkMode ? black : white,
-      background: isDarkMode ? "rgba(20, 20, 20, 0.7)" : "rgba(230, 230, 230)",
+      background: isDarkMode ? "rgba(20, 20, 20, 0.7)" : white,
       textColor: isDarkMode ? white : black,
       boxShadow: isDarkMode ? white : black,
       isDarkMode: isDarkMode,
