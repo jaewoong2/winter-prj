@@ -6,8 +6,10 @@ import {
 import createSagaMiddleware from "redux-saga";
 import darkSlice from "../slices/dark";
 import rootSaga from "../slices/saga/sagas";
+import titleSlice from "../slices/title";
 const reducres = combineReducers({
   dark: darkSlice.reducer,
+  title: titleSlice.reducer,
 });
 const sagaMiddleware = createSagaMiddleware();
 
