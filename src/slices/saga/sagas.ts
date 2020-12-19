@@ -1,9 +1,10 @@
-import { all, AllEffect } from "redux-saga/effects";
+import { all, AllEffect, ForkEffect } from "redux-saga/effects";
+import userSaga from "./userSaga";
 
 export default function* rootSaga(): Generator<
-  AllEffect<never>,
+  AllEffect<Generator<AllEffect<ForkEffect<void>>, void, unknown>>,
   void,
   unknown
 > {
-  yield all([]);
+  yield all([userSaga()]);
 }

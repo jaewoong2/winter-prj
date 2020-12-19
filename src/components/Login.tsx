@@ -1,10 +1,13 @@
 import MyButton from "./Button";
 import InputCustom from "./Input";
 import userInput from "../hooks/useInput";
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Link, RouteComponentProps, withRouter } from "react-router-dom";
 import styled from "@emotion/styled";
 import { GooglePlusOutlined, UsergroupAddOutlined } from "@ant-design/icons";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../configureStore/configureStore";
+import { loginAction } from "../slices/user";
 
 const LoginDiv = styled.div`
   width: 100vw;
@@ -141,13 +144,22 @@ const LoginContainer = ({ history }: RouteComponentProps) => {
   const [password, setPassword, onChangePassword] = userInput("");
   const [loading, setLoading] = useState(false);
 
+  const dispatch = useDispatch();
+  const userInfo = useSelector((state: RootState) => state.user.user);
+
   const onSubmitLogin = useCallback(
-    async (e: React.FormEvent<HTMLFormElement>) => {
-      console.log(e);
+    (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      dispatch(loginAction({ email, password }));
     },
     [email, password]
   );
   // 로그인 완료 시 메인 페이지
+  useEffect(() => {
+    if (userInfo.uid) {
+      history.replace("/");
+    }
+  }, [userInfo]);
 
   return (
     <LoginDiv>

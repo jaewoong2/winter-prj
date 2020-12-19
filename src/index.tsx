@@ -7,9 +7,11 @@ import { Provider } from "react-redux";
 import createStore from "./configureStore/configureStore";
 import ThemeProviders from "./theme/ThemeProvider";
 
+const store = createStore();
+
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={createStore}>
+    <Provider store={store}>
       <ThemeProviders>
         <App />
       </ThemeProviders>
